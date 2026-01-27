@@ -1,0 +1,23 @@
+// Motor-1
+#define IN1 26
+#define IN2 25
+
+// Motor-2
+#define IN3 33
+#define IN4 32
+
+void setup() {
+  pinMode(IN2, OUTPUT);
+  pinMode(IN4, OUTPUT);
+
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN4, LOW);
+
+  ledcAttach(IN1, 1000, 8);
+  ledcAttach(IN3, 1000, 8);
+}
+
+void loop() {
+  ledcWrite(IN1, 180);
+  ledcWrite(IN3, 180);
+}
