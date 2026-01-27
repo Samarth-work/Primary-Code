@@ -1,0 +1,23 @@
+#define IR_PIN 27
+// Motor-1
+#define IN1 26
+#define IN2 25
+
+// Motor-2
+#define IN3 33
+#define IN4 32
+
+
+void setup() {
+  pinMode(IN2, OUTPUT);
+  digitalWrite(IN2, LOW);
+  ledcAttach(IN1, 1000, 8);
+}
+
+void loop() {
+  if (digitalRead(IR_PIN) == LOW) {
+    ledcWrite(IN1, 220);   // Fast
+  } else {
+    ledcWrite(IN1, 100);   // Slow
+  }
+}
